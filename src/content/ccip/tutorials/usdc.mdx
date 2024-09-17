@@ -168,7 +168,27 @@ At this point:
 
 You will transfer _1 USDC_ and arbitrary data, which contains the encoded stake function name and parameters for calling Staker's stake function on the destination chain. The parameters contain the amount of staked tokens and the beneficiary address. The CCIP fees for using CCIP will be paid in LINK.
 
-1.  Transfer tokens and data from _Avalanche Fuji_:
+1. Approve the Sender Contract to Transfer USDC using _Snowtrace Explorer_:
+
+   1. Go to the **USDC token contract** on [Avalanche Fuji Snowtrace Explorer](https://testnet.snowtrace.io/address/0x5425890298aed601595a70AB815c96711a31Bc65/contract/43113/writeProxyContract?chainId=43113).
+
+   2. In the Snowtrace interface:
+      - Click the _"Contract"_ tab.
+      - Click _"Write as Proxy"_.
+      - Connect your wallet by clicking _"Connect to Web3"_ and select your MetaMask wallet connected to Avalanche Fuji.
+
+   3. Scroll down to find the _**approve**_ function.
+
+   4. Fill in the following arguments:
+   
+      | Argument    | Value and Description                                                                  |
+      | ----------- | -------------------------------------------------------------------------------------- |
+      | spender     | Enter your _**Sender contract address**_ on Avalanche Fuji (the address you deployed).   |
+      | amount      | <CopyText text="1000000" code /> <br /> (This represents 1 USDC token with 6 decimal places). |
+
+   5. Click _**Write**_ and confirm the transaction in MetaMask to approve the Sender contract to transfer USDC on your behalf.
+
+2.  Transfer tokens and data from _Avalanche Fuji_:
 
     1.  Open MetaMask and select the network _Avalanche Fuji_.
     1.  In Remix IDE, under _Deploy & Run Transactions_, open the list of transactions of your smart contract deployed on _Avalanche Fuji_.
